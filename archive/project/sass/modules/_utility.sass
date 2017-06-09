@@ -1,0 +1,42 @@
+$body-bg: #aaa
+$base-width: 1080px
+
+$icon-calculator: url("../assets/icon/calculator_icon.png")
+$icon-reset: url("../assets/icon/reset_icon.png")
+
+$green-gradient: rgba(0,255,0,1) linear-gradient(-45deg, rgba(0,255,0,1) 0%, rgba(0,243,48,1) 16%, rgba(0,232,93,1) 31%, rgba(29,189,112,1) 65%, rgba(34,181,115,1) 71%, rgba(0,161,153,1) 100%)
+$btn-overlay: rgba(0, 0, 0, 0.15)
+
+$btn-calculator-height: 80px
+
+// Calculator button shine effect
+=effect-btn-shine
+  &::before, &::after
+    position: absolute
+    display: block
+    content: ""
+    width: 50px
+    top: 15px
+    height: 65px
+    background: rgba(255, 255, 255, 0.5)
+    transform: translateX(-50px) skewX(-30deg)
+  &::before
+    left: 0
+    opacity: .5
+    filter: blur(30px)
+  &::after
+    left: 50px
+    opacity: 0
+    filter: blur(20px)
+  &:hover
+    background: $btn-overlay
+    cursor: pointer
+  &:hover::before, &:hover::after
+    transform: translateX($base-width + 100) skewX(-30deg)
+    transition: 1.3s
+  &:hover::before
+    opacity: 0.6
+  &:hover::after
+    opacity: 1
+  &:focus
+    outline: none

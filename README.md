@@ -1,2 +1,2 @@
 # Cremonths
-Creditcart installment fee calculator
+Installment fee Calc.

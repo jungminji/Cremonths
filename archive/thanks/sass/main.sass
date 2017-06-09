@@ -1,0 +1,61 @@
+@import "modules/reset"
+@import "modules/utility.sass"
+
+html
+  font-size: 10px
+
+html,
+body
+  font-family: 'Raleway', sans-serif
+
+.container
+  max-width: 768px
+  margin: 0 auto
+  background: $green-gradient
+
+////////////////////////////////////////////////////////////////////////////////
+
+.calculator
+  box-sizing: border-box
+  .heading
+    height: 50px
+    display: flex
+    & > h2
+      flex: 1 0
+      color: #fff
+      font-size: 1.6rem
+      font-weight: bold
+  .fields
+    height: 100px
+    display: flex
+    & > div
+      flex: 1 0
+    .amount
+      font-size: 1.8rem
+      color: #fff
+      font-weight: bold
+      & > input
+        background: transparent
+        border: none
+        border-bottom: 2px solid #fff
+        font-size: 1.6rem
+        color: #fff
+        &:focus
+          outline: none
+    .month
+      font-size: 1.8rem
+      color: #fff
+      font-weight: bold
+      & > input
+
+
+
+.amount
+  /*flex: auto*/
+  background-color: blue
+.month
+  /*flex: auto*/
+  background-color: pink
+.rate
+  /*flex: auto*/
+  background-color: aqua
