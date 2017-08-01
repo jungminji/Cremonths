@@ -9,7 +9,7 @@
         h2 Rate(%)
     .row.inputs
       .is-4
-        input(type="number" v-model.lazy="amount")
+        input(type="number" v-model.lazy="amount" class="field-amount")
       .is-4
         input(type="range" min="12" max="36" v-model.number="installmentMonth")
       .is-4

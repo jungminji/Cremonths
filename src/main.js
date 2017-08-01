@@ -42,6 +42,12 @@ const store = new Vuex.Store({
     },
     renderResult (context, payload) {
       context.commit('RENDER_RESULT', payload.renderStatus)
+    },
+    reset (context, payload) {
+      context.commit('RENDER_RESULT', payload.renderStatus)
+      context.commit('AMOUNT', payload.amount)
+      context.commit('MONTH', payload.month)
+      context.commit('RATE', payload.rate)
     }
   }
 })
