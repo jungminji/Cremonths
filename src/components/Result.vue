@@ -23,6 +23,17 @@
       .is-5-1
         h2 {{ totalInterest }}
     .row
+      .row.nested
+        .is-5-1 Turn
+        .is-5-1 Original fee
+        .is-5-1 Interest
+        .is-5-2 Monthly Payment
+      .row.nested(v-for="turn in installmentMonth")
+        .is-5-1(v-text="turn")
+        .is-5-1(v-text="renderAmountPerMonth()")
+        .is-5-1(v-text="renderInterest(turn)")
+        .is-5-2(v-text="renderAmountPerMonth() + renderInterest(turn)")
+    .row
       .is-full
         button(type="button" @click="resetAll") Reset
 </template>
@@ -47,6 +58,13 @@ export default {
         month: 0,
         rate: 0
       })
+    },
+    // Rendering Table
+    renderAmountPerMonth () {
+      return this.amount / this.installmentMonth
+    },
+    renderInterest (turn) {
+      return (this.amount - ((this.amount / this.installmentMonth) * (turn - 1))) * this.rate / 100 * 1 / 12
     }
   },
   computed: {
