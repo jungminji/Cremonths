@@ -1,5 +1,6 @@
 <template lang="pug">
-
+  .result
+    h1(v-if="this.$store.state.renderStatus") Show this Msg
 </template>
 
 <script>

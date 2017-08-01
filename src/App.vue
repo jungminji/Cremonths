@@ -1,6 +1,8 @@
 <template lang="pug">
   .app
     Controls
+    hr
+    Result
 </template>
 
 <script>

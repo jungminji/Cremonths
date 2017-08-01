@@ -12,7 +12,8 @@ const store = new Vuex.Store({
   state: {
     amount: 0,
     installmentMonth: 0,
-    rate: 0
+    rate: 0,
+    renderStatus: false
   },
   mutations: {
     AMOUNT (state, payload) {
@@ -23,6 +24,9 @@ const store = new Vuex.Store({
     },
     RATE (state, payload) {
       state.rate = payload
+    },
+    RENDER_RESULT (state, payload) {
+      state.renderStatus = payload
     }
   },
   actions: {
@@ -35,6 +39,9 @@ const store = new Vuex.Store({
     },
     updateRate (context, payload) {
       context.commit('RATE', payload.rate)
+    },
+    renderResult (context, payload) {
+      context.commit('RENDER_RESULT', payload.renderStatus)
     }
   }
 })
