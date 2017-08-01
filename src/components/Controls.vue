@@ -1,21 +1,24 @@
 <template lang="pug">
-  .controls(v-cloak)
+  .controls(v-cloak v-if="!this.$store.state.renderStatus")
     .row.headers
-      .is-4
+      .is-3-1
         h2 Amount
-      .is-4
+      .is-3-1
         h2 Installment Month
-      .is-4
+      .is-3-1
         h2 Rate(%)
     .row.inputs
-      .is-4
-        input(type="number" v-model.lazy="amount" class="field-amount")
-      .is-4
-        input(type="range" min="12" max="36" v-model.number="installmentMonth")
-      .is-4
+      .is-3-1
+        input(v-model.lazy="amount" number)
+      .is-3-1
+        span {{ installmentMonth }}
+        input(type="range" min="0" max="36" v-model.number="installmentMonth")
+      .is-3-1
+        span {{ rate }}
         input(type="range" min="0" max="50" v-model.number="rate")
     .row
-      button(type="button" @click="calculateResult") CALCULATE
+      .is-full
+        button(type="button" @click="calculateResult") CALCULATE
 </template>
 
 <script>
@@ -27,7 +30,7 @@ export default {
     return {
       // v-model.lazy to update amount after entering amount values
       amount: '',
-      installmentMonth: 10,
+      installmentMonth: 0,
       rate: 0
     }
   },

@@ -32,7 +32,7 @@ const store = new Vuex.Store({
   actions: {
     updateAmount (context, payload) {
       // calls AMOUNT mutations to update the state.amount
-      context.commit('AMOUNT', payload.amount)
+      context.commit('AMOUNT', parseInt(payload.amount, 10))
     },
     updateMonth (context, payload) {
       context.commit('MONTH', payload.month)
@@ -48,6 +48,17 @@ const store = new Vuex.Store({
       context.commit('AMOUNT', payload.amount)
       context.commit('MONTH', payload.month)
       context.commit('RATE', payload.rate)
+    }
+  },
+  getters: {
+    getAmount (state) {
+      return state.amount
+    },
+    getMonth (state) {
+      return state.installmentMonth
+    },
+    getRate (state) {
+      return state.rate
     }
   }
 })
