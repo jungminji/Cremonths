@@ -72,5 +72,17 @@ export default {
 <style lang="sass">
 div
   box-sizing: border-box
-  border: 1px solid #eee
+
+.controls
+  width: 960px
+  margin: 0 auto
+  border: 1px solid brown
+.row
+  width: 100%
+  padding: 0 5px
+  display: flex
+
+.is-3-1
+  flex-grow: 1
+  
 </style>
