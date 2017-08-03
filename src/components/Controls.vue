@@ -9,7 +9,7 @@
         h2.control-header Rate(%)
     .row.inputs
       .is-3-1
-        input(v-model.lazy="amount" number)
+        input(v-model.lazy="amount")
       .is-3-1
         p {{ installmentMonth }}
         input(type="range" min="0" max="36" v-model.number="installmentMonth")
@@ -19,13 +19,20 @@
     .row
       .is-full
         div.calculate-btn(tabindex="0" role="button" @click="calculateResult" @keyup.enter="calculateResult") CALCULATE
+
+    .row
+      h2.dodo
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'controls',
+  created () {
+    // Attach event listener of global bus 'RESET'
+    this.$bus.$on('RESET', this.resetData)
+  },
   data () {
     return {
       // v-model.lazy to update amount after entering amount values
@@ -33,6 +40,13 @@ export default {
       installmentMonth: 0,
       rate: 0
     }
+  },
+  computed: {
+    ...mapGetters({
+      getAmount: 'getAmount',
+      getMonth: 'getMonth',
+      getRate: 'getRate'
+    })
   },
   watch: {
     // when this.amount changed, dispatch(vuex action) updateAmount with payload amount which value is this.amount
@@ -64,6 +78,11 @@ export default {
       this.renderResult({
         renderStatus: true
       })
+    },
+    resetData ($event) {
+      this.amount = this.getAmount
+      this.installmentMonth = this.getMonth
+      this.rate = this.getRate
     }
   }
 }

@@ -40,7 +40,19 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { mapActions, mapGetters } from 'vuex'
+
+const EventBus = new Vue()
+
+// Attach it to global Vue global object
+Object.defineProperties(Vue.prototype, {
+  $bus: {
+    get: function () {
+      return EventBus
+    }
+  }
+})
 
 export default {
   name: 'table',
@@ -52,20 +64,22 @@ export default {
     ...mapActions({
       reset: 'reset'
     }),
-    resetAll () {
-      this.reset({
-        renderStatus: false,
-        amount: 0,
-        month: 0,
-        rate: 0
-      })
-    },
     // Rendering Table
     renderAmountPerMonth () {
       return Math.round(this.amount / this.installmentMonth)
     },
     renderInterest (turn) {
       return Math.round((this.amount - ((this.amount / this.installmentMonth) * (turn - 1))) * this.rate / 100 * 1 / 12)
+    },
+    resetAll () {
+      this.reset({
+        renderStatus: false,
+        amount: '',
+        month: 0,
+        rate: 0
+      })
+      // Emit global event 'RESET'
+      EventBus.$emit('RESET')
     }
   },
   computed: {

@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    amount: 0,
+    amount: '',
     installmentMonth: 0,
     rate: 0,
     renderStatus: false
