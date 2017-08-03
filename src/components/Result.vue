@@ -7,9 +7,9 @@
         h2.result-header Month
       .is-5-1
         h2.result-header Rate (%)
-      .is-5-1
+      .is-5-1.dim
         h2.result-header TotalFee
-      .is-5-1
+      .is-5-1.dim
         h2.result-header TotalInterest
     .row
       .is-5-1
@@ -18,9 +18,9 @@
         h2 {{ installmentMonth }}
       .is-5-1
         h2 {{ rate }}
-      .is-5-1
+      .is-5-1.dim
         h2 {{ Math.round(amount + totalInterest) }}
-      .is-5-1
+      .is-5-1.dim
         h2 {{ Math.round(totalInterest) }}
     .result-list
       .row.data-table
@@ -28,12 +28,12 @@
           .is-5-1 Turn
           .is-5-1 Original fee
           .is-5-1 Interest
-          .is-5-2 Monthly Payment
+          .is-5-2.dim Monthly Payment
         .row.nested(v-for="turn in installmentMonth")
           .is-5-1(v-text="turn")
           .is-5-1(v-text="renderAmountPerMonth()")
           .is-5-1(v-text="renderInterest(turn)")
-          .is-5-2(v-text="renderAmountPerMonth() + renderInterest(turn)")
+          .is-5-2(v-text="renderAmountPerMonth() + renderInterest(turn)").dim
       .row
         .is-full
           div.reset-btn(tabindex="0" role="button" @click="resetAll" @keyup.enter="resetAll") Reset
@@ -110,13 +110,17 @@ $green-gradient: rgba(0,255,0,1) linear-gradient(-45deg, rgba(0,255,0,1) 0%, rgb
 .result-header
   font-size: 14px
 .result-list
-  width: $container-width
+  width: $container-width + 80px
   background: $green-gradient
 .row
   width: 100%
   display: flex
   &.data-table
     flex-direction: column
+    height: 200px
+    overflow: auto
+    & > .row
+      min-height: 23px
 
 .is-5-1, .is-full
   width: 20%
@@ -130,5 +134,6 @@ $green-gradient: rgba(0,255,0,1) linear-gradient(-45deg, rgba(0,255,0,1) 0%, rgb
   padding: 20px 0
   background: rgba(0, 0, 0, 0.1)
   text-align: center
-
+.dim
+  background: rgba(0, 0, 0, 0.1)
 </style>
