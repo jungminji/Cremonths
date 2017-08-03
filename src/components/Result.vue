@@ -106,6 +106,9 @@ $green-gradient: rgba(0,255,0,1) linear-gradient(-45deg, rgba(0,255,0,1) 0%, rgb
   font-family: 'Raleay', sans-serif
   color: #fff
   background: #333
+  font-weight: 600
+.result-header
+  font-size: 14px
 .result-list
   width: $container-width
   background: $green-gradient

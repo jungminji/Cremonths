@@ -22,16 +22,13 @@ export default {
 
 <style lang="sass">
 body
-  height: 100vh
   width: 100vw
   display: flex
   justify-content: center
   align-items: center
   background: #1c1c1c
-.footer-text
-  color: grey
-  font-size: 12px
-  font-weight: lighter
+
+  padding-top: 65px
 
 // Component Transition
 .component-fade-enter-active, .component-fade-leave-active

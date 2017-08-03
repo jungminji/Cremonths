@@ -19,9 +19,6 @@
     .row
       .is-full
         div.calculate-btn(tabindex="0" role="button" @click="calculateResult" @keyup.enter="calculateResult") CALCULATE
-
-    .row
-      h2.dodo
 </template>
 
 <script>
@@ -95,6 +92,7 @@ $container-width: 960px
 $green-gradient: rgba(0,255,0,1) linear-gradient(-45deg, rgba(0,255,0,1) 0%, rgba(0,243,48,1) 16%, rgba(0,232,93,1) 31%, rgba(29,189,112,1) 65%, rgba(34,181,115,1) 71%, rgba(0,161,153,1) 100%)
 
 .controls
+  position: relative
   box-sizing: border-box
   width: $container-width
   background: $green-gradient
