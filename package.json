@@ -1,8 +1,11 @@
 {
-  "name": "cremonth-build",
-  "version": "1.0.0",
-  "description": "cremonth",
+  "name": "cremonth",
+  "version": "0.0.1",
+  "description": "credit card installment fee auto calculator",
   "author": "jungminji <fdev.jm@gmail.com>",
+  "contributors": [
+		{ "name": "Erica Niu", "email": "erica.niu7@gmail.com" }
+	],
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
