@@ -1,21 +1,12 @@
-# cremonth-build
+# Cremonth
 
-> cremonth
+- Vue, vuex 를 사용한 크레딧카드 할부 금액 자동 계산기
+- [Cremonth 페이지](https://cremonth.firebaseapp.com/)
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Contributors
 
-# build for production with minification
-npm run build
+Designer: Erica Niu
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Developer: Jungmin Ji
