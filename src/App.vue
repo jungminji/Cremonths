@@ -1,18 +1,28 @@
 <template lang="pug">
-  .app
-    UserInput
-    ResultHeader
+  .app(v-cloak)
+    transition(name="fade" mode="out-in") 
+      UserInput
+    transition(name="fade" mode="out-in")
+      ResultHeader
+    transition(name="fade" mode="out-in")
+      ResultTable
+    transition(name="fade" mode="out-in")
+      Reset
 </template>
 
 <script>
 import UserInput from './components/UserInput'
 import ResultHeader from './components/ResultHeader'
+import ResultTable from './components/ResultTable'
+import Reset from './components/Reset'
 
 export default {
   name: 'app',
   components: {
     UserInput,
-    ResultHeader
+    ResultHeader,
+    ResultTable,
+    Reset
   }
 }
 </script>
@@ -22,6 +32,7 @@ export default {
 @import './sass/reset'
 body
   background: #1c1c1c
+  padding-bottom: 70px
 .app
   position: absolute
   top: 0
@@ -35,4 +46,8 @@ body
   background: #1c1c1c
   padding-top: 65px
 
+.fade-enter-active, .fade-leave-active
+  transition: opacity 1s
+.fade-enter, .fade-leave-to
+  opacity: 0
 </style>

@@ -18,19 +18,22 @@
       .is-3-1
         p {{ rate + '&#37;' }}
         input(type="range" min="0" max="50" v-model="rate").rate
-    .row
-      .is-full
-        div(tabindex="0" role="button").calculate-btn
-          img(src="../assets/icons/calculate-button.svg")
-          | calculate
 
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { EventBus } from '../EventBus.js'
 
 export default {
   name: 'user-input',
+  created () {
+    EventBus.$on('G-Event-Reset', () => {
+      this.amount = ''
+      this.month = 0
+      this.rate = 0
+    })
+  },
   mounted () {
     // get initial values from store
     this.amount = this.getAmount

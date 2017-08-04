@@ -17,7 +17,7 @@ export default new Vuex.Store({
       state.month = payload
     },
     SET_RATE (state, payload) {
-      state.rate = payload / 100
+      state.rate = payload
     }
   },
   actions: {
@@ -41,10 +41,11 @@ export default new Vuex.Store({
     getRate (state) {
       return state.rate
     },
-    getTotalFee (state) {
-    },
     getTotalInterest (state) {
-      return state.amount * (state.month + 1) * (state.rate) / 24
+      return Math.round(state.amount * (state.month + 1) * (state.rate / 100) / 24)
+    },
+    getAmountPerMonth (state) {
+      return Math.round(state.amount / state.month)
     }
   }
 })
