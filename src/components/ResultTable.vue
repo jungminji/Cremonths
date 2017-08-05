@@ -7,15 +7,15 @@
         div(v-for="turn in getMonth") {{ turn }}
       .is-3-1.border
         div Original fee
-        div(v-for="turn in getMonth") {{ getAmountPerMonth }}
+        div(v-for="turn in getMonth") {{ getAmountPerMonth.toLocaleString() }}
       .is-3-1
         div Interest
-        div(v-for="turn in getMonth") {{ calInterest(turn) }}
+        div(v-for="turn in getMonth") {{ calInterest(turn).toLocaleString() }}
   .list.right
     .inner-right
       .is-1-1
         div Monthly Payment
-        div(v-for="turn in getMonth") {{ getAmountPerMonth + calInterest(turn) }}
+        div(v-for="turn in getMonth") {{ (getAmountPerMonth + calInterest(turn)).toLocaleString() }}
 
 </template>
 

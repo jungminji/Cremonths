@@ -7,11 +7,11 @@
       .is-5-1.dim Total Fee
       .is-5-1.dim Total Interest
     .row.header-values
-      .is-5-1 {{ '&#36;' + getAmount }}
+      .is-5-1 {{ '&#36;' + getAmount.toLocaleString() }}
       .is-5-1 {{ getMonth }}
       .is-5-1 {{ getRate + '&#37;' }}
-      .is-5-1.dim {{ '&#36;' + (getAmount + getTotalInterest) }}
-      .is-5-1.dim {{ '&#36;' + getTotalInterest }}
+      .is-5-1.dim {{ '&#36;' + (getAmount + getTotalInterest).toLocaleString() }}
+      .is-5-1.dim {{ '&#36;' + getTotalInterest.toLocaleString() }}
 
 </template>
 
