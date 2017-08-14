@@ -32,7 +32,7 @@ export default {
 @import './sass/reset'
 body
   background: #1c1c1c
-  padding-bottom: 70px
+  padding-bottom: 45px
 .app
   position: absolute
   top: 0

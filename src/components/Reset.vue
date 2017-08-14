@@ -1,7 +1,7 @@
 <template lang="pug">
   .reset(v-if="hasValues()")
     div(role="button" @click="resetValues" tabindex="0" @keyup.enter="resetValues").btn reset
-    footer.footer Designer: Erica Niu, Developer: Jungmin Ji, Vue, Vuex
+    footer.footer Designer: Erica Niu, Developer: Jungmin Ji / Vue, Vuex
 </template>
 
 <script>
